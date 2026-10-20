@@ -21,19 +21,16 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Check index.html
+      - name: Check website files
         run: |
-          ls -la
-          test -f index.html || {
-            echo "ERROR: index.html not in root"
-            exit 1
-          }
+          ls -la GYEOP_GitHub_Pages_v1
+          test -f GYEOP_GitHub_Pages_v1/index.html
 
       - uses: actions/configure-pages@v5
 
       - uses: actions/upload-pages-artifact@v4
         with:
-          path: .
+          path: GYEOP_GitHub_Pages_v1
 
       - id: deployment
         uses: actions/deploy-pages@v4
